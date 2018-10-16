@@ -1,12 +1,9 @@
-var dbConnection = require('../infra/connectionFactory');
-
 module.exports = function (app) {
     app.get('/ministerios', function (req, res) {
-        var mysql = require('mysql');
-        var connection = dbConnection();
+        var connection = app.infra.connectionFactory();
 
         connection.query('select * from ministerio', function (err, results) {
-            res.render('ministerios/lista', {lista: results});
+            res.render('ministerios/lista', { lista: results });
         });
 
         connection.end();
