@@ -4,6 +4,7 @@
   "description": "Application for support church activities",
   "main": "index.js",
   "scripts": {
+    "build:production": "node --version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eduardo Hass / Roberto Cássio",
