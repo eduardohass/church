@@ -8,7 +8,7 @@ module.exports = function (app) {
             res.render('ministerios/lista', { lista: results });
         });
 
-        connection.end();
+        // connection.end();
     };
     
     app.get('/ministerios', listaMinisterios);
@@ -17,12 +17,13 @@ module.exports = function (app) {
         res.render('ministerios/form');
     });
 
-    app.post('/ministerios/salva', function (req, res) {
+    app.post('/ministerios', function (req, res) {
         var ministerio = req.body;
         var connection = app.infra.connectionFactory();
         var ministeriosDAO = new app.infra.MinisteriosDAO(connection);
         ministeriosDAO.salva(ministerio, function(erros, resultados){
             res.redirect('/ministerios');
         });
+        // connection.end();
     });
 }

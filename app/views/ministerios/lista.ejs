@@ -1,20 +1,36 @@
 <html>
-    <body>
-        <table border="1px">
-            <tr>
-                <td>id</td>
-                <td>nome</td>
-                <td>status</td>
-                <td>dataCriação</td>
-            </tr>
-            <%for(var i=0;i<lista.length;i++) {%>
-                <tr>
-                    <td><%=lista[i].id%></td>
-                    <td><%=lista[i].nome%></td>
-                    <td><%=lista[i].status%></td>
-                    <td><%=lista[i].dataCriacao%></td>
-                </tr>
-            <%}%>
-        </table>
-    </body>
+
+<body>
+    <%if (lista != null) { %>
+    <table border="1px">
+        <tr>
+            <td>id</td>
+            <td>nome</td>
+            <td>status</td>
+            <td>dataCriação</td>
+        </tr>
+        <%for(var i=0;i<lista.length;i++) {%>
+        <tr>
+            <td>
+                <%=lista[i].id%>
+            </td>
+            <td>
+                <%=lista[i].nome%>
+            </td>
+            <td>
+                <%=lista[i].status%>
+            </td>
+            <td>
+                <%=lista[i].dataCriacao%>
+            </td>
+        </tr>
+        <%}%>
+    </table>
+    <% }else{ %>
+    <p>
+        Nenhum registro encontrado.
+    </p>
+    <%} %>
+</body>
+
 </html>
